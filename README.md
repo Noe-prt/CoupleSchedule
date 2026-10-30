@@ -53,3 +53,7 @@ Before opening this as a public service, add infrastructure rate limits for cale
 - `npm run db:migrate` — apply committed migrations
 
 Drizzle CLI loads `.env.local` and `.env`. Never commit either file.
+
+For a pooled hosted database, set `DATABASE_URL_UNPOOLED` to its direct connection
+string. Drizzle migrations prefer this variable while the app continues using the
+pooled `DATABASE_URL`. If it is unset, migrations use `DATABASE_URL`.
